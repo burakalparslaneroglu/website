@@ -30,3 +30,15 @@ export const publications = [
   { year: "2017", title: "How Successful Are Wavelets in Detecting Jumps?", journal: "Entropy, 19(12), 638" },
   { year: "2016", title: "A nonparametric unit root test under nonstationary volatility", journal: "Economics Letters, 140, 6–10" },
 ] as const;
+
+export type PortalContent = {
+  profile: typeof profile;
+  courses: Array<[string, string, string]>;
+  publications: Array<{ year: string; title: string; journal: string; url?: string }>;
+};
+
+export const defaultPortalContent: PortalContent = {
+  profile,
+  courses: courses.map((course) => [...course] as [string, string, string]),
+  publications: publications.map((publication) => ({ ...publication })),
+};
