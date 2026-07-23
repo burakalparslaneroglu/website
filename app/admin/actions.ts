@@ -7,7 +7,12 @@ import { getPortalContent, savePortalContent } from "../portal-store";
 const ADMIN_EMAIL = "balparslaner@gmail.com";
 
 function linesToCourses(value: string) {
-  return value.split("\n").map((line) => line.split("|").map((item) => item.trim())).filter((parts) => parts.length === 3 && parts.every(Boolean)) as [string, string, string][];
+  return value.split("\n").map((line) => {
+    const parts = line.split("|").map((item) => item.trim());
+    if (parts.length === 3 && parts.every(Boolean)) return parts as [string, string, string];
+    const match = line.trim().match(/^([A-Za-zÇĞİÖŞÜçğıöşü]+\s+\d+)\s+(.+)$/);
+    return match ? [match[1], match[2], "Türkçe"] as [string, string, string] : null;
+  }).filter(Boolean) as [string, string, string][];
 }
 
 function linesToPublications(value: string) {
