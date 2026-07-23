@@ -35,10 +35,12 @@ export type PortalContent = {
   profile: typeof profile;
   courses: Array<[string, string, string]>;
   publications: Array<{ year: string; title: string; journal: string; url?: string }>;
+  eys: { streamlitUrl: string; notesUrl: string };
 };
 
 export const defaultPortalContent: PortalContent = {
   profile,
   courses: courses.map((course) => [...course] as [string, string, string]),
   publications: publications.map((publication) => ({ ...publication })),
+  eys: { streamlitUrl: "https://finansal-ekonometri-eys26.streamlit.app/", notesUrl: "/eys-2026-uygulamali-finansal-ekonometri-ders-notlari.pdf" },
 };

@@ -32,6 +32,7 @@ export async function saveContent(formData: FormData) {
     bio: String(formData.get("bio") ?? ""), detail: String(formData.get("detail") ?? ""),
     cvUrl: String(formData.get("cvUrl") ?? ""), researchUrl: String(formData.get("researchUrl") ?? ""), teachingUrl: String(formData.get("teachingUrl") ?? ""),
   };
-  await savePortalContent({ profile, courses: linesToCourses(String(formData.get("courses") ?? "")), publications: linesToPublications(String(formData.get("publications") ?? "")) });
+  const eys = { streamlitUrl: String(formData.get("eysStreamlitUrl") ?? ""), notesUrl: String(formData.get("eysNotesUrl") ?? "") };
+  await savePortalContent({ profile, courses: linesToCourses(String(formData.get("courses") ?? "")), publications: linesToPublications(String(formData.get("publications") ?? "")), eys });
   revalidatePath("/"); revalidatePath("/admin");
 }
