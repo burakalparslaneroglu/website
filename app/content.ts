@@ -16,6 +16,9 @@ export const courses = [
 ] as const;
 
 export const publications = [
+  { year: "2026", title: "Dynamic Interactions Between Sectoral Tail Risk and Market Integration: Evidence from Borsa Istanbul Using PELVE and DCC-GARCH", journal: "Borsa Istanbul Review, 100781", url: "https://doi.org/10.1016/j.bir.2026.100781" },
+  { year: "2025", title: "Nonparametric seasonal cointegration tests", journal: "Communications in Statistics – Simulation and Computation (forthcoming)", url: "https://doi.org/10.1080/03610918.2025.2598425" },
+  { year: "2025", title: "Seasonal unit root tests and flexible Fourier form", journal: "Journal of Statistical Computation and Simulation", url: "https://doi.org/10.1080/00949655.2025.2569649" },
   { year: "2024", title: "A mixed-frequency VAR application to studying joint dynamics of foreign investor trading and stock market returns", journal: "Empirical Economics", url: "https://doi.org/10.1007/s00181-023-02541-4" },
   { year: "2023", title: "Pairs Trading with Wavelet Transform", journal: "Quantitative Finance, 23(7–8), 1129–1154", url: "https://sites.google.com/view/burakalparslaneroglu/research-and-codes" },
   { year: "2023", title: "Bounded unit root processes with nonstationary volatility", journal: "Communications in Statistics – Simulation and Computation, 52(4), 1245–1263" },
