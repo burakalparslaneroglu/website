@@ -3,6 +3,15 @@ import { defaultPortalContent, type PortalContent } from "./content";
 
 const schemaSql = "CREATE TABLE IF NOT EXISTS portal_content (id INTEGER PRIMARY KEY, payload TEXT NOT NULL, updated_at TEXT NOT NULL)";
 
+const removedCourseTitle = "Python ile Uygulamalı Zaman Serisi Analizi";
+
+function normalizeContent(content: PortalContent): PortalContent {
+  return {
+    ...content,
+    courses: content.courses.filter(([, title]) => title !== removedCourseTitle),
+  };
+}
+
 async function ensureTable() {
   await env.DB.prepare(schemaSql).run();
 }
@@ -11,7 +20,7 @@ export async function getPortalContent(): Promise<PortalContent> {
   await ensureTable();
   const row = await env.DB.prepare("SELECT payload FROM portal_content WHERE id = 1").first<{ payload: string }>();
   if (!row) return defaultPortalContent;
-  try { return JSON.parse(row.payload) as PortalContent; } catch { return defaultPortalContent; }
+  try { return normalizeContent(JSON.parse(row.payload) as PortalContent); } catch { return defaultPortalContent; }
 }
 
 export async function savePortalContent(content: PortalContent) {

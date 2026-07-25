@@ -13,7 +13,6 @@ export const profile = {
 export const courses = [
   ["IKT 102", "Makroekonominin İlkeleri", "Türkçe"],
   ["IKT 302", "Bilimsel Araştırma Yöntemleri", "Türkçe"],
-  ["IKT 526", "Python ile Uygulamalı Zaman Serisi Analizi", "Türkçe"],
 ] as const;
 
 export const publications = [
