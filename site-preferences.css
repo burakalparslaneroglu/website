@@ -1,0 +1,39 @@
+/*
+  GitHub üzerinden okunabilirlik ayarları:
+  Aşağıdaki sayıları büyütüp küçülterek tüm ana sayfa yardımcı metinlerini
+  tek noktadan güncelleyebilirsiniz.
+*/
+:root {
+  --menu-font-size: 28px;
+  --action-font-size: 28px;
+  --section-label-font-size: 24px;
+  --location-font-size: 26px;
+}
+
+/* Ana sayfa: menü, düğmeler, bölüm etiketleri ve konum bilgisi */
+.navlinks,
+.navcta {
+  font-size: var(--menu-font-size);
+}
+
+.button,
+.textlink {
+  font-size: var(--action-font-size);
+}
+
+.label {
+  font-size: var(--section-label-font-size);
+}
+
+.side-note {
+  font-size: var(--location-font-size);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --action-font-size: 20px;
+    --section-label-font-size: 18px;
+    --location-font-size: 20px;
+  }
+}
